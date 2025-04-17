@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puzzle End-to-End BI-CBS CM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>Puzzle End-to-End BI-CBS CM</h1>
+
+  <!-- Timer & Score -->
+  <div style="display: flex; justify-content: center; gap: 50px; margin: 20px 0;">
+    <div>⏱️ Timer: <span id="timer">00:00</span></div>
+    <div>⭐ Skor: <span id="score">0</span></div>
+  </div>
+
+  <!-- Puzzle Board -->
+  <h2>🧩 Area Penyusunan</h2>
+  <div id="board-map">
+    <!-- Baris atas -->
+    <div class="slot" id="slot-1" data-correct="1" style="top: 18%; left: 10%;"><span class="slot-number">1</span></div>
+    <div class="slot" id="slot-2" data-correct="2" style="top: 18%; left: 21%;"><span class="slot-number">2</span></div>
+    <div class="slot" id="slot-3" data-correct="3" style="top: 18%; left: 32%;"><span class="slot-number">3</span></div>
+
+    <!-- Kiri -->
+    <div class="slot" id="slot-4" data-correct="4" style="top: 50%; left: 32%;"><span class="slot-number">4</span></div>
+    <div class="slot" id="slot-5" data-correct="5" style="top: 67%; left: 32%;"><span class="slot-number">5</span></div>
+
+    <!-- Gabungan -->
+    <div class="slot" id="slot-6-7" data-correct="6-7" style="top: 18%; left: 45%; width: 215px; height: 70px;"><span class="slot-number">6-7</span></div>
+    <div class="slot" id="slot-8-9" data-correct="8-9" style="top: 18%; left: 66.7%; width: 200px; height: 70px;"><span class="slot-number">8-9</span></div>
+    <div class="slot" id="slot-10" data-correct="10" style="top: 18%; left: 89%;"><span class="slot-number">10</span></div>
+
+    <div class="slot" id="slot-11" data-correct="11" style="top: 41%; left: 89%;"><span class="slot-number">11</span></div>
+
+    <div class="slot" id="slot-12-13" data-correct="12-13" style="top: 41%; left: 66.7%; width: 200px; height: 70px;"><span class="slot-number">12-13</span></div>
+    <div class="slot" id="slot-14" data-correct="14" style="top: 41%; left: 56%;"><span class="slot-number">14</span></div>
+    <div class="slot" id="slot-15" data-correct="15" style="top: 41%; left: 45%;"><span class="slot-number">15</span></div>
+
+    <div class="slot" id="slot-16-18" data-correct="16-18" style="top: 65%; left: 45%; width: 320px; height: 70px;"><span class="slot-number">16-18</span></div>
+    <div class="slot" id="slot-19" data-correct="19" style="top: 65%; left: 76%;"><span class="slot-number">19</span></div>
+    <div class="slot" id="slot-20" data-correct="20" style="top: 65%; left: 89%;"><span class="slot-number">20</span></div>
+
+    <div class="slot" id="slot-21" data-correct="21" style="top: 87%; left: 54%;"><span class="slot-number">21</span></div>
+    <div class="slot" id="slot-22" data-correct="22" style="top: 87%; left: 65%;"><span class="slot-number">22</span></div>
+    <div class="slot" id="slot-23" data-correct="23" style="top: 87%; left: 76%;"><span class="slot-number">23</span></div>
+  </div>
+
+  <!-- Potongan Puzzle -->
+  <h2>🧩 Potongan Proses</h2>
+  <div id="pieces" class="pieces-grid">
+    <div class="piece" draggable="true" data-id="1" style="width: 70px; height: 70px;">
+      <span class="piece-number">1</span><img src="img/1.png" alt="1">
+    </div>
+    <div class="piece" draggable="true" data-id="2" style="width: 70px; height: 70px;">
+      <span class="piece-number">2</span><img src="img/2.png" alt="2">
+    </div>
+    <div class="piece" draggable="true" data-id="3" style="width: 70px; height: 70px;">
+      <span class="piece-number">3</span><img src="img/3.png" alt="3">
+    </div>
+    <div class="piece" draggable="true" data-id="4" style="width: 70px; height: 70px;">
+      <span class="piece-number">4</span><img src="img/4.png" alt="4">
+    </div>
+    <div class="piece" draggable="true" data-id="5" style="width: 70px; height: 70px;">
+      <span class="piece-number">5</span><img src="img/5.png" alt="5">
+    </div>
+    <div class="piece" draggable="true" data-id="6-7" style="width: 215px; height: 70px;">
+      <span class="piece-number">6-7</span><img src="img/6-7.png" alt="6-7">
+    </div>
+    <div class="piece" draggable="true" data-id="8-9" style="width: 200px; height: 70px;">
+      <span class="piece-number">8-9</span><img src="img/8-9.png" alt="8-9">
+    </div>
+    <div class="piece" draggable="true" data-id="10" style="width: 70px; height: 70px;">
+      <span class="piece-number">10</span><img src="img/10.png" alt="10">
+    </div>
+    <div class="piece" draggable="true" data-id="11" style="width: 70px; height: 70px;">
+      <span class="piece-number">11</span><img src="img/11.png" alt="11">
+    </div>
+    <div class="piece" draggable="true" data-id="12-13" style="width: 200px; height: 70px;">
+      <span class="piece-number">12-13</span><img src="img/12-13.png" alt="12-13">
+    </div>
+    <div class="piece" draggable="true" data-id="14" style="width: 70px; height: 70px;">
+      <span class="piece-number">14</span><img src="img/14.png" alt="14">
+    </div>
+    <div class="piece" draggable="true" data-id="15" style="width: 70px; height: 70px;">
+      <span class="piece-number">15</span><img src="img/15.png" alt="15">
+    </div>
+    <div class="piece" draggable="true" data-id="16-18" style="width: 320px; height: 70px;">
+      <span class="piece-number">16-18</span><img src="img/16-18.png" alt="16-18">
+    </div>
+    <div class="piece" draggable="true" data-id="19" style="width: 70px; height: 70px;">
+      <span class="piece-number">19</span><img src="img/19.png" alt="19">
+    </div>
+    <div class="piece" draggable="true" data-id="20" style="width: 70px; height: 70px;">
+      <span class="piece-number">20</span><img src="img/20.png" alt="20">
+    </div>
+    <div class="piece" draggable="true" data-id="21" style="width: 70px; height: 70px;">
+      <span class="piece-number">21</span><img src="img/21.png" alt="21">
+    </div>
+    <div class="piece" draggable="true" data-id="22" style="width: 70px; height: 70px;">
+      <span class="piece-number">22</span><img src="img/22.png" alt="22">
+    </div>
+    <div class="piece" draggable="true" data-id="23" style="width: 70px; height: 70px;">
+      <span class="piece-number">23</span><img src="img/23.png" alt="23">
+    </div>
+  </div>
+
+  <!-- Kontrol -->
+  <div id="controls">
+    <button id="checkBtn">✔️ Cek Jawaban</button>
+    <button id="resetBtn">🔄 Reset Puzzle</button>
+    <button id="toggleNumberBtn">🔢 Show/Hide Nomor</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

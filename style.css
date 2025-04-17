@@ -1,0 +1,164 @@
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 10px;
+}
+
+#board-map {
+  position: relative;
+  width: 1200px;
+  height: 675px;
+  margin: 0 auto 30px;
+  background-image: url('img/bg-flow.png');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.slot {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: 2px dashed #888;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 70px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* Slot positions aligned next to background numbers */
+#slot-1 { top: 12%; left: 8%; }
+#slot-2 { top: 12%; left: 21%; }
+#slot-3 { top: 12%; left: 34%; }
+#slot-4 { top: 29%; left: 13%; }
+#slot-5 { top: 41%; left: 13%; }
+
+#slot-6  { top: 14%; left: 58%; }
+#slot-7  { top: 14%; left: 67%; }
+#slot-8  { top: 14%; left: 76%; }
+#slot-9  { top: 14%; left: 85%; }
+#slot-10 { top: 14%; left: 94%; }
+
+#slot-11 { top: 28%; left: 94%; }
+#slot-12 { top: 28%; left: 85%; }
+#slot-13 { top: 28%; left: 76%; }
+#slot-14 { top: 28%; left: 67%; }
+#slot-15 { top: 28%; left: 58%; }
+
+#slot-16 { top: 42%; left: 58%; }
+#slot-17 { top: 42%; left: 67%; }
+#slot-18 { top: 42%; left: 76%; }
+#slot-19 { top: 42%; left: 85%; }
+#slot-20 { top: 42%; left: 94%; }
+
+#slot-21 { top: 58%; left: 85%; }
+#slot-22 { top: 58%; left: 76%; }
+#slot-23 { top: 58%; left: 67%; }
+
+.slot-number {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: #333;
+}
+
+#pieces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.pieces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* PIECE */
+.piece {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+  user-select: none;
+  cursor: grab;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 6px;
+}
+
+.piece:active {
+  cursor: grabbing;
+}
+
+.piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* NOMOR PIECE */
+.piece-number {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 2px 4px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.piece img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.piece:active {
+  cursor: grabbing;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+#controls {
+  margin-top: 30px;
+}
